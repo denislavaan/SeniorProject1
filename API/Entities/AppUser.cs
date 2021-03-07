@@ -9,3 +9,4 @@ namespace API.Entities
         public byte[] PasswordSalt { get; set; }
     }
 }
+
