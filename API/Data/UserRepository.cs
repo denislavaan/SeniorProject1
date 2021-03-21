@@ -28,7 +28,7 @@ namespace API.Data
             .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<ConnectionDTO>> GetConnectionAsync()
+        public async Task<IEnumerable<ConnectionDTO>> GetConnectionsAsync()
         {
             return await _context.Users
             .ProjectTo<ConnectionDTO>(_mapper.ConfigurationProvider)
