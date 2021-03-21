@@ -1,17 +1,19 @@
+
 <div class="container mt-5">
   <div style="text-align: center" *ngIf="!registerMode">
+    
     <h1>Connect with the right people!</h1>
-    <p class="lead">Register now!</p>
+    <p class="lead"> KnowApp is a social media application that focuses on professional networking and career development.</p>
     <div class="text-center">
       <button (click)="registerToggle()" class="btn btn-primary mr-2 btn-lg">Register now!</button>
-      <button class="btn btn-info btn-lg">Learn more</button>
+      <button class="btn btn-info btn-lg">About Us</button>
     </div>
+  </div>
   </div>
   <div class="container" *ngIf="registerMode">
     <div class="row justify-content-center">
       <div class="col-4">
-        <app-register [usersFromHomeComponent]="users"> </app-register>
+        <app-register> </app-register>
       </div>
     </div>
   </div>
-</div>

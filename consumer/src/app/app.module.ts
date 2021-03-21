@@ -10,18 +10,32 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ConnectionListComponent } from './connections/connection-list/connection-list.component';
+import { ConnectionDetailComponent } from './connections/connection-detail/connection-detail.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListsComponent,
+    MessagesComponent,
+    ConnectionListComponent,
+    ConnectionDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+positionClass: 'toast-top-center'
+    }),
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(),

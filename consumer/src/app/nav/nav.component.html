@@ -1,25 +1,26 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#"> KnowApp </a>
+    <a class="navbar-brand" routerLinkActive='active' routerLink='/'> KnowApp </a>
 
-    <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+    <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async" >
+    
       <li class="nav-item">
-        <a class="nav-link" href="#"> Lists </a>
+        <a class="nav-link" routerLinkActive='active' routerLink='/lists'> Users </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Connections </a>
+        <a class="nav-link" routerLinkActive='active' routerLink='/connections'> My Connections </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Messages </a>
+        <a class="nav-link" routerLinkActive='active' routerLink='/messages'> Messages </a>
       </li>
     </ul>
 
     <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-      <a href="" class="dropdown-toggle text-light" dropdownToggle>
-        Welcome back!
+      <a class="dropdown-toggle text-light" dropdownToggle>
+        My Account
       </a>
       <div class="dropdown-menu" *dropdownMenu>
-        <a href="" class="dropdown-item">Edit Profile</a>
+        <a href="#" class="dropdown-item">Edit Profile</a>
         <div class="dropdown-divider"></div>
         <a href="" class="dropdown-item" (click)="logout()"> Log out </a>
       </div>
@@ -46,7 +47,7 @@
         type="password"
         placeholder="Password"
       />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">
         Log In
       </button>
     </form>
