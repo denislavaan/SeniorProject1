@@ -30,7 +30,7 @@ namespace API
                 var logger = services.GetRequiredService<ILogger<Program>>();
                 logger.LogError(ex, "There is an error with the migration");
                 //to catch any exceptions that happend duting the seeding of the data
-            };
+            }
             await host.RunAsync();
         }
 

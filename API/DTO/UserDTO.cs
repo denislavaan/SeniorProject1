@@ -6,4 +6,4 @@ namespace API.DTO
         public string Token { get; set; }
     }
 }
-//The object we return when the user loges in (or registers)
+//The object we return when the user logs in (or registers)

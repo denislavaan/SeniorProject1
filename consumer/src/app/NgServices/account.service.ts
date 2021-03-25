@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { User } from '../NgModels/user';
 import { ReplaySubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.UrlAPI;
   private currentUserSource = new ReplaySubject<User>(1);
   //a type of observable, called ReplaySubject and acts like a buffer object and is going to store the values inside. And since its just a user object for the current user, I only need one.Either null or the current user object
   currentUser$ = this.currentUserSource.asObservable();

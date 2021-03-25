@@ -7,6 +7,7 @@ using API.Data;
 using API.Extensions;
 using API.Interfaces;
 using API.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,7 @@ namespace API
         {
              
             services.AddAppServices(_config);
+    
             services.AddControllers();
             services.AddCors();
             services.AddIdentityServices(_config);

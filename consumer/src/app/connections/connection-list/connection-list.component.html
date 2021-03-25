@@ -1,1 +1,6 @@
-<p>connection-list works!</p>
+<div class="row">
+    <div *ngFor="let connection of connections" class="col-2">
+            <app-connection-card [connection]="connection"> </app-connection-card>
+    
+    </div>
+</div>

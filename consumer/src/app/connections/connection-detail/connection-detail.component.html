@@ -1,1 +1,32 @@
-<p>connection-detail works!</p>
+<div class="row" *ngIf="connection">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{connection.photoUrl || './assets/user.png'}}" alt="{{connection.Nickname}}" 
+                class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{connection.city}}, {{connection.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{connection.age}}</p>
+                </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{connection.LastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member since:</strong>
+                    <p>{{connection.Created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary">Star</button>
+                    <button class="btn btn-success">Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+

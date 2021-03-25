@@ -6,7 +6,7 @@ using API.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+using AutoMapper;
 
 namespace API.Extensions
 {
@@ -15,14 +15,13 @@ namespace API.Extensions
         public static IServiceCollection AddAppServices(this IServiceCollection services, IConfiguration config)
         {
         services.AddScoped<ITokenService, TokenService>();
-        
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-            services.AddDbContext<DataContext>(Options =>
+        services.AddDbContext<DataContext>(options =>
             {
-                Options.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
             return services;
         }
     }
-} 
+}

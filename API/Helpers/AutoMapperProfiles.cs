@@ -2,6 +2,7 @@ using API.Entities;
 using AutoMapper;
 using API.DTO;
 using System.Linq;
+using API.Extensions;
 
 namespace API.Helpers
 {
@@ -10,10 +11,12 @@ namespace API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<AppUser, ConnectionDTO>() //mapping from the AppUser to the Connection 
-                .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(
-                src => src.Photos.FirstOrDefault(x => x.IsMain).Url));
-                
-        CreateMap<Photo, PhotoDTO>(); 
+                .ForMember(destination => destination.PhotoUrl, option => option.MapFrom(
+                src => src.Photos.FirstOrDefault(photo => photo.IsMain).Url))
+                .ForMember(destination => destination.Age, option => option.MapFrom(
+                    src => src.Birthday.CalculateAge()));
+      
+            CreateMap<Photo, PhotoDTO>();
         
         }
     }

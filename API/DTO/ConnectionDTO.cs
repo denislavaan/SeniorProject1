@@ -14,7 +14,6 @@ namespace API.DTO
         public DateTime LastActive { get; set; } 
         public string Gender { get; set; }
         public string Bio { get; set; }
-        
         public string LookingFor { get; set; } 
         public string InterestedIn { get; set; }
         public string City { get; set; }

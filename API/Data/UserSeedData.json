@@ -13,8 +13,8 @@
       "Country": "Bulgaria",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/women/23.jpg",
-          "isMain": true
+          "Url": "https://randomuser.me/api/portraits/women/23.jpg",
+          "IsMain": true
         }
       ]
     },
@@ -32,8 +32,8 @@
       "Country": "Bulgaria",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/women/51.jpg",
-          "isMain": true
+          "Url": "https://randomuser.me/api/portraits/women/51.jpg",
+          "IsMain": true
         }
       ]
     },
@@ -51,8 +51,8 @@
       "Country": "Bulgaria",
       "Photos": [
         {
-          "url": "https://randomuser.me/api/portraits/women/70.jpg",
-          "isMain": true
+          "Url": "https://randomuser.me/api/portraits/women/70.jpg",
+          "IsMain": true
         }
       ]
     },
@@ -70,8 +70,8 @@
           "Country": "Bulgaria",
           "Photos": [
             {
-              "url": "https://randomuser.me/api/portraits/men/47.jpg",
-              "isMain": true
+              "Url": "https://randomuser.me/api/portraits/men/47.jpg",
+              "IsMain": true
             }
           ]
         },
@@ -89,8 +89,8 @@
           "Country": "American Samoa",
           "Photos": [
             {
-              "url": "https://randomuser.me/api/portraits/men/18.jpg",
-              "isMain": true
+              "Url": "https://randomuser.me/api/portraits/men/18.jpg",
+              "IsMain": true
             }
           ]
         },
@@ -108,8 +108,8 @@
           "Country": "USA",
           "Photos": [
             {
-              "url": "https://randomuser.me/api/portraits/men/96.jpg",
-              "isMain": true
+              "Url": "https://randomuser.me/api/portraits/men/96.jpg",
+              "IsMain": true
             }
           ]
         }

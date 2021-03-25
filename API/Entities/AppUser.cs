@@ -24,9 +24,7 @@ namespace API.Entities
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; } // one to many relationship because one user can have many photos 
-        public int GetAge(){
-         return Birthday.CalculateAge();
-        }
+        
     }
 }
 

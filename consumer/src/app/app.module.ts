@@ -9,12 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-
+import { CommonModule} from '@angular/common';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ConnectionListComponent } from './connections/connection-list/connection-list.component';
 import { ConnectionDetailComponent } from './connections/connection-detail/connection-detail.component';
+import { ConnectionCardComponent } from './connections/connection-card/connection-card.component';
 
 
 
@@ -27,7 +28,8 @@ import { ConnectionDetailComponent } from './connections/connection-detail/conne
     ListsComponent,
     MessagesComponent,
     ConnectionListComponent,
-    ConnectionDetailComponent
+    ConnectionDetailComponent,
+    ConnectionCardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ positionClass: 'toast-top-center'
     }),
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot(),
+    
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -63,40 +63,6 @@ namespace API.Data
         {
             _context.Entry(user).State = EntityState.Modified;
         }
-
-        Task<IEnumerable<ConnectionDTO>> IUserRepository.GetConnectionAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<ConnectionDTO> IUserRepository.GetConnectionAsync(string username)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<AppUser> IUserRepository.GetUserByIdAsync(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<AppUser> IUserRepository.GetUserByUsernameAsync(string username)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<IEnumerable<AppUser>> IUserRepository.GetUsersAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<bool> IUserRepository.SaveAllAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void IUserRepository.Update(AppUser user)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
+       

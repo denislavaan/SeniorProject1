@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace API.Controllers
 {
     [Authorize]
@@ -17,11 +18,12 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+
         public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _mapper = mapper;
             _userRepository = userRepository;
-            
+
         }
 
         [HttpGet]
@@ -29,6 +31,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<ConnectionDTO>>> GetUsers()
         {
             var users = await _userRepository.GetConnectionsAsync();
+            
             return Ok(users);
         }
 
@@ -37,7 +40,7 @@ namespace API.Controllers
         public async Task<ActionResult<ConnectionDTO>> GetUser(string username)
         {
             return await _userRepository.GetConnectionAsync(username);
-           
+
         }
     }
 }
