@@ -1,17 +1,18 @@
 import { Photo } from "./photo";
 
 export interface Connection {
-  id: string;
+
+  id: number;
   username: string;
   photoUrl: string;
-  age: string;
-  Nickname: string;
-  Created: Date;
-  LastActive: Date;
+  age: number;
+  nickname: string;
+  created: Date;
+  lastActive: Date;
   gender: string;
-  Bio: string;
-  LookingFor: string;
-  InterestedIn: string;
+  bio: string;
+  lookingFor: string;
+  interestedIn: string;
   city: string;
   country: string;
   photos: Photo[];

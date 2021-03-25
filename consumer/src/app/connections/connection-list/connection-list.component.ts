@@ -19,7 +19,7 @@ export class ConnectionListComponent implements OnInit {
   loadConnections(){
     this.connectionService.getConnections().subscribe(connections => {
       this.connections = connections;
-      console.log(this.connections);
+     // console.log(this.connections);
     })
   }
 

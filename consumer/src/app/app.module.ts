@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ConnectionListComponent } from './connections/connection-list/connection-list.component';
 import { ConnectionDetailComponent } from './connections/connection-detail/connection-detail.component';
 import { ConnectionCardComponent } from './connections/connection-card/connection-card.component';
-
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 @NgModule({
@@ -40,8 +40,8 @@ positionClass: 'toast-top-center'
     }),
     BrowserAnimationsModule,
     FormsModule,
-    
     CommonModule,
+    TabsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

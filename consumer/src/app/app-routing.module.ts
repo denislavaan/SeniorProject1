@@ -10,7 +10,7 @@ import { AuthGuard } from './NgGuards/auth.guard';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'connections', component: ConnectionListComponent, canActivate: [AuthGuard]},
-  {path: 'connections/:id', component: ConnectionDetailComponent, canActivate: [AuthGuard]},
+  {path: 'connections/:username', component: ConnectionDetailComponent, canActivate: [AuthGuard]},
   {path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]},
   {path: 'lists', component: ListsComponent, canActivate: [AuthGuard]},
   {path: '**', component: HomeComponent, pathMatch: 'full'} ,

@@ -1,7 +1,7 @@
 .img-thumbnail {
     margin: 25px;
-    width: 85%;
-    height: 85%;
+    width: 80%;
+    height: 80%;
 }
 
 .card-body {
@@ -10,6 +10,6 @@
 
 .card-footer {
     padding: 10px 15px;
-    background-color: #fff;
+    background-color:white;
     border-top: none;
 } 
