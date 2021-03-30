@@ -17,6 +17,7 @@ import { ConnectionListComponent } from './connections/connection-list/connectio
 import { ConnectionDetailComponent } from './connections/connection-detail/connection-detail.component';
 import { ConnectionCardComponent } from './connections/connection-card/connection-card.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 @NgModule({
@@ -29,9 +30,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     MessagesComponent,
     ConnectionListComponent,
     ConnectionDetailComponent,
-    ConnectionCardComponent
+    ConnectionCardComponent,
+    
   ],
   imports: [
+     
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -42,7 +45,9 @@ positionClass: 'toast-top-center'
     FormsModule,
     CommonModule,
     TabsModule.forRoot(),
+    NgxGalleryModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
