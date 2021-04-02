@@ -1,0 +1,64 @@
+<div class="row" *ngIf="connection">
+    <div class="col-4">
+        <h1>My profile</h1>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-info" *ngIf="editForm.dirty">
+            <strong>Information: </strong> You have made changes. Any unsaved changes will be lost
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{connection.photoUrl}}" alt="{{connection.nickname}}" 
+                class="card-img-top img-thumbnail"> 
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{connection.city}}, {{connection.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{connection.age}}</p>
+                </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{connection.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member since:</strong>
+                    <p>{{connection.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='About Me'>
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateConnection()">
+                    <h4 class="mt-2">Description</h4>
+                    <textarea class="form-control" [(ngModel)]="connection.bio" name="bio" rows="6"></textarea>
+                    <h4 class="mt-2">Learning more about</h4>
+                    <textarea class="form-control" [(ngModel)]="connection.lookingFor" name="lookingFor" rows="4"></textarea>
+                    <h4 class="mt-2">Experienced in</h4>
+                    <textarea class="form-control" [(ngModel)]="connection.interestedIn" name="interests" rows="4"></textarea>
+                    <h4 class="mt-2">Location Details: </h4>
+                    <div class="form-inline">
+                        <label for="city">City: </label>
+                        <input [(ngModel)]="connection.city" type="text" name="city" class="form-control mx-2">
+                    
+                        <label for="city">Country: </label>
+                        <input [(ngModel)]="connection.country" type="text" name="country" class="form-control mx-2">
+                    </div>
+                </form>
+
+            </tab>
+            <tab heading='Edit Photos'>
+                <p>Photosss</p>
+            </tab>
+        </tabset>
+    </div>
+</div>

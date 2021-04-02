@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -18,6 +18,11 @@ import { ConnectionDetailComponent } from './connections/connection-detail/conne
 import { ConnectionCardComponent } from './connections/connection-card/connection-card.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { ConnectionEditComponent } from './connections/connection-edit/connection-edit.component';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import { ErrorInterceptor } from './NgInterceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 
 @NgModule({
@@ -31,10 +36,14 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     ConnectionListComponent,
     ConnectionDetailComponent,
     ConnectionCardComponent,
+    ConnectionEditComponent,
+    TestErrorsComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
     
   ],
   imports: [
-     
+    BsDropdownModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -48,7 +57,9 @@ positionClass: 'toast-top-center'
     NgxGalleryModule,
   ],
   
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

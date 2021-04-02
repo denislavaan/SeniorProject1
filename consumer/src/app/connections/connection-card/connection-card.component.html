@@ -1,19 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="card mb-4">
+        <div class="card-img-wrapper">
+            <img src="{{connection.photoUrl}}" alt="{{connection.nickname}}" class="card-image-top" >
+        <ul class="user-icons list-inline animate text-center mt-4">
+            <li class="list-inline-item"><button routerLink="/connections/{{connection.username}}" class="btn btn-primary"><i class="fa fa-user"></i></button>
+            </li>
+            <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-star"></i></button></li>
+            <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-envelope"></i></button></li>
+        </ul>
+        </div>
+        <div class="card body p-1">
+            <h5 class="card-title text-center mb-1">
+                <i class="fa fa-user mr-2"></i>
+                {{connection.nickname}}
+            </h5>
+            <p class="card-text text-muted text-center"> {{connection.interestedIn}} </p>
+        </div>
+    </div>
 
-<div class="card mb-4">
-    <div class="card-img-wrapper">
-        <img src="{{connection.photoUrl}}" alt="{{connection.nickname}}" class="card-image-top" >
-    <ul class="user-icons list-inline animate text-center">
-        <li class="list-inline-item"><button routerLink="/connections/{{connection.username}}" class="btn btn-primary"><i class="fa fa-user"> </i></button>
-        </li>
-        <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-star"> </i></button></li>
-        <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-envelope"> </i></button></li>
-    </ul>
-    </div>
-    <div class="card body p-1">
-        <h5 class="card-title text-center mb-1">
-            <i class="fa fa-user mr-2"></i>
-            {{connection.nickname}}
-        </h5>
-        <p class="card-text text-muted text-center"> {{connection.interestedIn}} </p>
-    </div>
-</div>

@@ -26,4 +26,7 @@ export class ConnectionsService {
   getConnection(username: string){
       return this.http.get<Connection>(this.baseUrl + 'users/' + username, this.httpOptions);
     }
+    updateConnection(connection: Connection) {
+      return this.http.put(this.baseUrl + 'users', connection, this.httpOptions);
+    }
 }

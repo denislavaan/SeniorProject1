@@ -1,4 +1,4 @@
-.card:hover img {
+ .card:hover img {
     transform: scale(1.2, 1.2);
     transition-duration: 500ms;
     transition-timing-function: ease-out;
@@ -10,10 +10,18 @@
     transition-duration: 500ms;
     transition-timing-function: ease-out;
 }
+.card { 
+    border: 2px solid #1D3557;
+    background-color: #f6f9fc;
+    
+}
+
+.card.body { 
+    border: none;
+}
 
 img {
     width: 100%;
-    
 }
 
 .card-img-wrapper {
@@ -29,6 +37,7 @@ img {
     margin-right: auto;
     margin-left: auto;
     opacity: 0;
+    color: #1D3557;
 }
 
 .card-img-wrapper:hover .member-icons {
@@ -38,4 +47,4 @@ img {
 
 .animate {
     transition: all 0.3s ease-in-out;
-} 
+}   

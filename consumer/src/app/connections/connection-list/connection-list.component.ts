@@ -21,6 +21,7 @@ export class ConnectionListComponent implements OnInit {
       this.connections = connections;
      // console.log(this.connections);
     })
+  
   }
 
 }

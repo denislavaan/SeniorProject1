@@ -10,6 +10,21 @@
 
 .card-footer {
     padding: 10px 15px;
-    background-color:white;
+    background-color:#f6f9fc;
     border-top: none;
 } 
+
+.btn-success {
+    background-color: #1D3557;
+}
+.btn-primary {
+    background-color: #A8DADC;
+    color: #1D3557;
+    text-shadow: #1D3557;
+}
+.connection-tabset {
+    color: #1D3557;
+}
+.card {
+    background-color: #f6f9fc;
+}
