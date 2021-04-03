@@ -42,9 +42,8 @@ namespace API.Data
 
         public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
-            return await _context.Users
-            .Include(p => p.Photos)
-            .SingleOrDefaultAsync(x => x.UserName == username);
+            return await _context.Users.Include(p => p.Photos).SingleOrDefaultAsync(x => x.UserName == username);
+            //this will include the related array of photos included in the response 
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
@@ -62,6 +61,7 @@ namespace API.Data
         public void Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;
+             // to inform the entity framework that the state has been modifiedd
         }
     }
 }
