@@ -1,0 +1,31 @@
+.btn-danger {
+    background-color: #1D3557;
+    border: none;
+   
+}
+.img.img-thumbnail {
+    height: 100px;
+    min-width: 100px;
+    margin-bottom: 5px;
+}
+.nv-file-over {
+ border: dotted 2px #457B9D;
+ background-color: #E1ecf2;
+
+}
+input[type=file] {
+    color: transparent
+}
+
+.btn-success {
+ background-color: #457B9D;
+ border: 1px solid #457B9D;
+}
+.btn-otline-sucess {
+ background-color: #E1ecf2;
+ border: 1px solid #457B9D;
+}
+.btn-otline-sucess:hover {
+background-color:#A8DADC;
+border: 1px solid #457B9D;
+   }

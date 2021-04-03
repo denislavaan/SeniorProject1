@@ -17,3 +17,6 @@
     padding: 0;
     margin-bottom: 20px;
 }
+.btn.btn-success {
+    background-color: #1D3557;
+}

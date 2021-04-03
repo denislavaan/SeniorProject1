@@ -24,6 +24,7 @@ import { ErrorInterceptor } from './NgInterceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { PhotoEditorComponent } from './connections/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ positionClass: 'toast-top-center'
     CommonModule,
     TabsModule.forRoot(),
     NgxGalleryModule,
+    FileUploadModule,
   ],
   
   providers: [

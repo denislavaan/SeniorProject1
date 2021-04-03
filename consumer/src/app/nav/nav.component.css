@@ -4,3 +4,11 @@
 nav {
     background-color: #457B9D;
 }
+.profile-thumbnail {
+    max-height: 40px;
+    border: 2px solid #1D3557;
+    border-radius: 50%;
+    display: inline;
+    padding: 0;
+    margin-right: 5px;
+}

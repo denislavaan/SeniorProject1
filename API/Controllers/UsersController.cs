@@ -59,7 +59,7 @@ namespace API.Controllers
         }
 
         [HttpPost("add-photo")]
-   public async Task<ActionResult<PhotoDTO>> AddPhoto([FromForm]IFormFile file)
+        public async Task<ActionResult<PhotoDTO>> AddPhoto([FromForm] IFormFile file)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
 
@@ -81,11 +81,47 @@ namespace API.Controllers
             user.Photos.Add(photo);
 
             if (await _userRepository.SaveAllAsync())
-             {
+            {
                 return CreatedAtRoute(
-                    "GetUser", new {username = user.UserName}, _mapper.Map<PhotoDTO>(photo));
+                    "GetUser", new { username = user.UserName }, _mapper.Map<PhotoDTO>(photo));
             }
             return BadRequest("Problem addding photo");
         }
+
+        [HttpPut]
+        [Route("set-profile-photo/{photoId}")]
+        public async Task<ActionResult> SetProfilePhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            var photo = user.Photos.FirstOrDefault(p => p.Id == photoId);
+            if (photo.IsMain) return BadRequest("This is already your profile photo!");
+            var currentMain = user.Photos.FirstOrDefault(photo => photo.IsMain);
+            if (currentMain != null) currentMain.IsMain = false;
+            photo.IsMain = true;
+
+            if (await _userRepository.SaveAllAsync()) return NoContent();
+            return BadRequest("There was a problem setting up this photo");
+        }
+
+        [HttpDelete]
+        [Route("delete-photo/{photoId}")]
+        public async Task<ActionResult> DeletePhoto(int photoId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            var photo = user.Photos.FirstOrDefault(p => p.Id == photoId);
+
+            if (photo == null) return NotFound();    //if the photo is not existing, then - not found 
+            if (photo.IsMain) return BadRequest("Please first choose another main photo!"); //the user should not be able to delete its main photo before first selecting his new main photo
+            if (photo.PublicId != null)
+            {
+                var result = await _photoService.DeletePhotoAsync(photo.PublicId);
+                if (result.Error != null) return BadRequest(result.Error.Message);
+            }         // to check if we have the public id for this photo first and then delete the photo //if there's a problem with deleting it, then we'll notify the user 
+
+            user.Photos.Remove(photo);
+            if (await _userRepository.SaveAllAsync()) return Ok();
+            return BadRequest("There was a problem deleting your photo");
+        }
+
     }
 }
