@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,6 +25,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { PhotoEditorComponent } from './connections/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { InputTextComponent } from './NgForms/input-text/input-text.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     NotFoundComponent,
     ServerErrorComponent,
     PhotoEditorComponent,
+    InputTextComponent,
     
   ],
   imports: [
@@ -55,6 +57,7 @@ positionClass: 'toast-top-center'
     }),
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     TabsModule.forRoot(),
     NgxGalleryModule,
