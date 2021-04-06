@@ -1,10 +1,11 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+
+<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off">
   <h2 class="text-center text-primary">Sign Up</h2>
-  <hr/>
+  <hr>
 
 <app-input-text [formControl]='registerForm.controls["username"]' [label]='"Username"'> </app-input-text>
 <app-input-text [formControl]='registerForm.controls["nickname"]' [label]='"Name"'> </app-input-text>
-<app-input-text [formControl]='registerForm.controls["birthday"]' [label]='"Birthday"'> </app-input-text>
+<app-input-date [formControl]='registerForm.controls["birthday"]' [label]='"Birthday"' [maxDate]='maxDate'> </app-input-date>
 <app-input-text [formControl]='registerForm.controls["city"]' [label]='"City"'> </app-input-text>
 <app-input-text [formControl]='registerForm.controls["country"]' [label]='"Country"'> </app-input-text>
 <div class="form-group">
@@ -13,17 +14,21 @@
     <input type="radio" value="male" formControlName='gender'> Male 
   </label>
   <label class="radio-inline"> 
-    <input type="radio" value="female" formControlName='gender' style="ml-3"> Female 
+    <input type="radio" value="female" formControlName='gender' class="ml-3"> Female 
   </label>
   <label class="radio-inline"> 
-    <input type="radio" value="other" formControlName='gender' style="ml-3"> Other 
+    <input type="radio" value="other" formControlName='gender' class="ml-3"> Other 
   </label>
 </div>
 <app-input-text [formControl]='registerForm.controls["password"]' [label]='"Password"' [type]='"password"'> </app-input-text>
 <app-input-text [formControl]='registerForm.controls["confirmPassword"]' [label]='"Confirm Password"' [type]='"password"'> </app-input-text>
-
+<div class="row" *ngIf="validationErrors.length > 0">
+  <ul class="text-danger"> 
+    <li *ngIf="let error of validationErrors"> {{error}} </li>
+  </ul>
+</div>
     <div class="form-group text-center">
-      <button class="btn btn-success mr-2" type="submit">Register</button>
+      <button [disabled]='!registerForm.valid' class="btn btn-success mr-2" type="submit">Register</button>
     </div>
   
 </form>

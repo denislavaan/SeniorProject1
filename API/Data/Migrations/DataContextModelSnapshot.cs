@@ -91,6 +91,21 @@ namespace API.Data.Migrations
                     b.ToTable("Photos");
                 });
 
+            modelBuilder.Entity("API.Entities.UserRecommend", b =>
+                {
+                    b.Property<int>("SourceUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RecommendedUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SourceUserId", "RecommendedUserId");
+
+                    b.HasIndex("RecommendedUserId");
+
+                    b.ToTable("Recommendations");
+                });
+
             modelBuilder.Entity("API.Entities.Photo", b =>
                 {
                     b.HasOne("API.Entities.AppUser", "AppUser")
@@ -102,9 +117,32 @@ namespace API.Data.Migrations
                     b.Navigation("AppUser");
                 });
 
+            modelBuilder.Entity("API.Entities.UserRecommend", b =>
+                {
+                    b.HasOne("API.Entities.AppUser", "RecommendedUser")
+                        .WithMany("RecommendedByUsers")
+                        .HasForeignKey("RecommendedUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.Entities.AppUser", "SourceUser")
+                        .WithMany("RecommendedUsers")
+                        .HasForeignKey("SourceUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RecommendedUser");
+
+                    b.Navigation("SourceUser");
+                });
+
             modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
                     b.Navigation("Photos");
+
+                    b.Navigation("RecommendedByUsers");
+
+                    b.Navigation("RecommendedUsers");
                 });
 #pragma warning restore 612, 618
         }

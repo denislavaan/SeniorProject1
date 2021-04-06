@@ -32,7 +32,7 @@ namespace API.Controllers
         }
               [HttpGet("badRequest")]
         public ActionResult<string> GetBadRequest() {
-            return BadRequest("We cannot find the requested item. Please check your request again.");
+            return BadRequest();
         }
     }
 }

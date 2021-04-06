@@ -25,6 +25,8 @@ namespace API.Entities
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; } // one to many relationship because one user can have many photos 
         
+        public ICollection<UserRecommend> RecommendedByUsers { get; set; }
+        public ICollection<UserRecommend> RecommendedUsers { get; set; }
     }
 }
 

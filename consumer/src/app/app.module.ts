@@ -26,6 +26,15 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { PhotoEditorComponent } from './connections/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { InputTextComponent } from './NgForms/input-text/input-text.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { InputDateComponent } from './NgForms/input-date/input-date.component';
+import { JwtInterceptor } from './NgInterceptors/jwt.interceptor';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { TimeagoModule } from 'ngx-timeago';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 
 @NgModule({
@@ -45,6 +54,7 @@ import { InputTextComponent } from './NgForms/input-text/input-text.component';
     ServerErrorComponent,
     PhotoEditorComponent,
     InputTextComponent,
+    InputDateComponent,
     
   ],
   imports: [
@@ -62,10 +72,27 @@ positionClass: 'toast-top-center'
     TabsModule.forRoot(),
     NgxGalleryModule,
     FileUploadModule,
+    BsDatepickerModule.forRoot(),
+    PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
+    TimeagoModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerImmediately'
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} 
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
