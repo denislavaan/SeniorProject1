@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="row" *ngIf="connection">
+<div class="row">
     <div class="col-4">
         <div class="card">
             <img src="{{connection.photoUrl}}" alt="{{connection.nickname}}" 
@@ -25,7 +25,7 @@
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">
-                    <button class="btn btn-success">Message</button>
+                    <button (click)="selectTab(3)" class="btn btn-success">Message</button>
                     <button class="btn btn-primary">Recommend</button>
                     
                 </div>
@@ -33,23 +33,23 @@
         </div>
     </div>
     <div class="col-8">
-        <tabset class="connection-tabset">
-            <tab heading='About {{connection.nickname}}'>
+        <tabset class="connection-tabset" #PageTabs>
+            <tab heading='About {{connection.nickname}}' (selectTab)="onTabActive($event)" >
                 <h4>About me </h4>
                 <p>{{connection.bio}}</p>
                 <h4>Currently learning more about</h4>
                 <p>{{connection.lookingFor}}</p>
             </tab>
-            <tab heading='{{connection.interestedIn}} Resources'>
+            <tab heading='{{connection.interestedIn}} Resources'(selectTab)="onTabActive($event)" >
                 <h4>Can help you with</h4>
                 <p>{{connection.interestedIn}}</p>
             </tab>
-            <tab heading='Photos'>
+            <tab heading='Photos'(selectTab)="onTabActive($event)" >
                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
                 style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>           
                  </tab>
-            <tab heading='Messages'>
-                <p>Messages will go here</p>
+            <tab heading='Messages'(selectTab)="onTabActive($event)" >
+                <app-connection-messages [messages]="messages" [username]="connection.username" > </app-connection-messages>
             </tab>
         </tabset>
     </div>

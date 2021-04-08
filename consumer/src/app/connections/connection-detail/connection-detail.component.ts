@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConnectionsService } from 'src/app/NgServices/connections.service';
 import { Connection } from 'src/app/NgModels/connection';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { Message } from 'src/app/NgModels/message';
+import { MessageService } from 'src/app/NgServices/message.service';
 
 @Component({
   selector: 'app-connection-detail',
@@ -13,13 +16,22 @@ export class ConnectionDetailComponent implements OnInit {
   connection: Connection;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[]; 
+  @ViewChild('PageTabs', {static: true}) pageTabs: TabsetComponent;
+  activeTab: TabDirective;
+  messages: Message[] = [];
   
 
-  constructor(private connectionService : ConnectionsService, private route: ActivatedRoute) { }
+  constructor(private connectionService : ConnectionsService, 
+    private route: ActivatedRoute, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.loadConnection();
+    this.route.data.subscribe(data => {
+      this.connection = data.connection; 
+    })
 
+    this.route.queryParams.subscribe(params => {
+      params.tab ? this.selectTab(params.tab) : this.selectTab(0);
+    })
 
     this.galleryOptions = [
       {
@@ -31,6 +43,7 @@ export class ConnectionDetailComponent implements OnInit {
         preview: false, 
       }
     ]
+    this.galleryImages = this.getImages();
    
   }
 
@@ -46,11 +59,22 @@ export class ConnectionDetailComponent implements OnInit {
 return imageUrls;
 }
 
-
-loadConnection() {
-  this.connectionService.getConnection(this.route.snapshot.paramMap.get('username')).subscribe(connection => {
- this.connection = connection; 
- this.galleryImages = this.getImages(); 
+loadMessages() {
+  this.messageService.getMessageThread(this.connection.username).subscribe(messages => {
+    this.messages = messages;
   })
 }
+
+selectTab(tabId: number) {
+  this.pageTabs.tabs[tabId].active = true;
+}
+
+onTabActive(data: TabDirective){
+  this.activeTab = data; //access to the information inside that tab
+  if(this.activeTab.heading === 'Messages' && this.messages.length === 0) {
+    this.loadMessages();
+  }
+
+}
+
 }

@@ -27,6 +27,8 @@ namespace API.Entities
         
         public ICollection<UserRecommend> RecommendedByUsers { get; set; }
         public ICollection<UserRecommend> RecommendedUsers { get; set; }
+        public ICollection<Message> MessagesSent { get; set; }
+        public ICollection<Message> MessagesReceived { get; set; }
     }
 }
 

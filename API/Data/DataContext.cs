@@ -12,6 +12,8 @@ namespace API.Data
         }
         public DbSet<AppUser> Users { get; set; }
         public DbSet<UserRecommend> Recommendations { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder); 
 
@@ -29,6 +31,16 @@ namespace API.Data
             .WithMany(r => r.RecommendedByUsers) 
             .HasForeignKey(s => s.RecommendedUserId) 
             .OnDelete(DeleteBehavior.Cascade); 
+
+            builder.Entity<Message>()
+                .HasOne(u => u.Receiver)
+                .WithMany(m => m.MessagesReceived)
+                .OnDelete(DeleteBehavior.Restrict); //so that the message cannot be removed if one of the users haven't deleted it as well
+
+            builder.Entity<Message>()
+                .HasOne(u => u.Sender)
+                .WithMany(m => m.MessagesSent)
+                .OnDelete(DeleteBehavior.Restrict);
       }
     }
 }

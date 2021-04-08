@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { CommonModule} from '@angular/common';
 import { ListsComponent } from './lists/lists.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ConnectionListComponent } from './connections/connection-list/connection-list.component';
 import { ConnectionDetailComponent } from './connections/connection-detail/connection-detail.component';
@@ -34,6 +33,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { TimeagoModule } from 'ngx-timeago';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MessagesComponent } from './messages/messages.component';
+import { ConnectionMessagesComponent } from './connections/connection-messages/connection-messages.component';
 
 
 
@@ -55,7 +56,7 @@ import { environment } from '../environments/environment';
     PhotoEditorComponent,
     InputTextComponent,
     InputDateComponent,
-    
+    ConnectionMessagesComponent,
   ],
   imports: [
     BsDropdownModule.forRoot(),

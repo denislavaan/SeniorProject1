@@ -93,7 +93,7 @@ namespace API.Controllers
                 return CreatedAtRoute(
                     "GetUser", new { username = user.UserName }, _mapper.Map<PhotoDTO>(photo));
             }
-            return BadRequest("Problem addding photo");
+            return BadRequest("There was a problem with adding your photo. Please try again");
         }
 
         [HttpPut]

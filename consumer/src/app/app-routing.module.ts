@@ -11,6 +11,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './NgGuards/auth.guard';
 import { PreventUnsavedChangesGuard } from './NgGuards/prevent-unsaved-changes.guard';
+import { ConnectionDetailResolver } from './NgResolvers/connection-detail.resolver';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
   canActivate: [AuthGuard],
   children: [
   {path: 'connections', component: ConnectionListComponent},
-  {path: 'connections/:username', component: ConnectionDetailComponent},
+  {path: 'connections/:username', component: ConnectionDetailComponent, resolve: {connection: ConnectionDetailResolver}},
   {path: 'connection/edit', component: ConnectionEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
   {path: 'messages', component: MessagesComponent},
   {path: 'lists', component: ListsComponent},

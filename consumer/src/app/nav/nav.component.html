@@ -5,19 +5,18 @@
     <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async" >
     
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive='active' routerLink='/lists'> Users </a>
+        <a class="nav-link" routerLinkActive='active' routerLink='/lists'> My Connections List </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive='active' routerLink='/connections'> My Connections </a>
+        <a class="nav-link" routerLinkActive='active' routerLink='/connections'> Connections </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive='active' routerLink='/messages'> Messages </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/errors'routerLinkActive='active' >Errors</a>
-    </li>
+      
     </ul>
-  
+
+
     <div class="dropdown" *ngIf="accountService.currentUser$ | async as user" dropdown>
       <img src="{{user.photoUrl}}" class="profile-thumbnail">
       <a class="dropdown-toggle text-light" dropdownToggle>
