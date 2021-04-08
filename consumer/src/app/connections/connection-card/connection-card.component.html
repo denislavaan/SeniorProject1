@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="card mb-4">
         <div class="card-img-wrapper">
-            <img src="{{connection.photoUrl}}" alt="{{connection.nickname}}" class="card-image-top" >
+            <img src="{{connection.photoUrl || '/assets/user.png'}}" alt="{{connection.nickname}}" class="card-image-top" >
         <ul class="user-icons list-inline animate text-center mt-4">
             <li class="list-inline-item"><button routerLink="/connections/{{connection.username}}" class="btn btn-primary"><i class="fa fa-user"></i></button>
             </li>

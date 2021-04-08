@@ -29,21 +29,21 @@
         </tr>
         <tr [hidden]="loading" *ngFor="let message of messages" 
             routerLink='{{container === "Outbox" 
-                ? "/connection/" + message.receiverUsername 
-                : "/connection/" + message.senderUsername}}' [queryParams]='{tab: 3}' >
+                ? "/connections/" + message.receiverUsername 
+                : "/connections/" + message.senderUsername}}' [queryParams]='{tab: 3}' >
             <td>{{message.content}}</td>    
             <td>
                 <div *ngIf="container === 'Outbox'">
                     <img 
                         class="img-circle rounded-circle mr-2"
-                        src="{{message.receiverPhotoUrl}}" 
+                        src="{{message.receiverPhotoUrl || '/assets/user.png'}}" 
                         alt="{{message.receiverUsername}}">
                     <strong>{{message.receiverUsername}}</strong>
                 </div> 
                 <div *ngIf="container !== 'Outbox'">
                     <img 
                         class="img-circle rounded-circle mr-2"
-                        src="{{message.senderPhotoUrl}}" 
+                        src="{{message.senderPhotoUrl || '/assets/user.png'}}" 
                         alt="{{message.senderUsername}}">
                     <strong>{{message.senderUsername}}</strong>
                 </div> 

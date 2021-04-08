@@ -1,15 +1,18 @@
 <div class="form-group">
-    <input
-      placeholder={{label}}
-      formControlName="confirmPassword"
-      type={{type}}
-      [formControl]="ngControl.control"
-      class="form-control"
+  <input 
       [class.is-invalid]="ngControl.touched && ngControl.invalid"
-    />
-    <div *ngIf="ngControl.control.errors?.required" class="invalid-feedback">Please enter a {{label}}!</div>
-    <div *ngIf="ngControl.control.errors?.minlength" class="invalid-feedback">{{label}} must be at least {{ngControl.control.errors.minlength['requiredLength']}} characters!</div> 
-    <!-- //so I can freely change the min length of any value and there would be no need to go back and change it in the html  -->
-    <div *ngIf="ngControl.control.errors?.maxlength" class="invalid-feedback">{{label}} must not be more than {{ngControl.control.errors.maxlength['requiredLength']}} characters!</div>
-    <div *ngIf="ngControl.control.errors?.Matching" class="invalid-feedback"> Passwords are not matching!</div>
+      type={{type}}
+      class="form-control" 
+      [formControl]="ngControl.control"
+      placeholder={{label}}>
+  <div *ngIf="ngControl.control.errors?.required" class="invalid-feedback">Please enter a {{label}}</div>
+  <div *ngIf="ngControl.control.errors?.minlength" class="invalid-feedback">
+      {{label}} must be at least {{ngControl.control.errors.minlength['requiredLength']}}
   </div>
+  <div *ngIf="ngControl.control.errors?.maxlength" class="invalid-feedback">
+      {{label}} must be at most {{ngControl.control.errors.maxlength['requiredLength']}}
+  </div>
+  <div *ngIf="ngControl.control.errors?.isMatching" class="invalid-feedback">
+      Passwords do not match
+  </div>
+</div>

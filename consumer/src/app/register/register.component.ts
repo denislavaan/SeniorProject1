@@ -35,7 +35,7 @@ validationErrors: string[] = [];
       country: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       confirmPassword: ['', [Validators.required, this.PasswordMatch('password')]]
-    })
+    });
     this.registerForm.controls.password.valueChanges.subscribe(()=>{
       this.registerForm.controls.confirmPassword.updateValueAndValidity(); 
       //when the password changes then the validity will be updated to be sure that there is validation even when there is a change in the fields 
