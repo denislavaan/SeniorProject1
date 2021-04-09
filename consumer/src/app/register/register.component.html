@@ -2,15 +2,6 @@
   <h2 class="text-center text-primary">Sign Up</h2>
   <hr>
 
-  <div class="form-group">
-    <label class="control-label" stryle="margin-right: 10px;"> Gender </label>
-    <label class="radio-inline"> 
-      <input type="radio" value="male" formControlName='gender'> Male 
-    </label>
-    <label class="radio-inline"> 
-      <input type="radio" value="female" formControlName='gender' class="ml-3"> Female 
-    </label>
-  </div>
 
 <app-input-text formControlName="username" [label]='"Username"'> </app-input-text>
 <app-input-text formControlName="nickname" [label]='"Name"'> </app-input-text>
@@ -18,6 +9,15 @@
 <app-input-text formControlName="city" [label]='"City"'> </app-input-text>
 <app-input-text formControlName="country" [label]='"Country"'> </app-input-text>
 
+<div class="form-group">
+  <label class="control-label" stryle="margin-right: 10px;"> Gender </label>
+  <label class="radio-inline"> 
+    <input type="radio" value="male" formControlName='gender'> Male 
+  </label>
+  <label class="radio-inline"> 
+    <input type="radio" value="female" formControlName='gender' class="ml-3"> Female 
+  </label>
+</div>
 <app-input-text formControlName="password" [label]='"Password"' [type]='"password"'> </app-input-text>
 <app-input-text formControlName="confirmPassword" [label]='"Confirm Password"' [type]='"password"'> </app-input-text>
 <div class="row" *ngIf="validationErrors.length > 0">

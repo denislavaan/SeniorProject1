@@ -19,9 +19,10 @@ connection: Connection;
 user: User;
 
   constructor(private accountService: AccountService, private connectionService: ConnectionsService, private toastr: ToastrService) {
-    this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
-   }
-
+    this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user); 
+   } 
+   //getting the user from the accountService. After that getting the username from the user and fetching this data to the specific user. 
+//to populate the user object with the data from the account service, I'm using the pipe and taking the currentUser$ from the accountService
   ngOnInit(): void {
    this.loadConnection();
   }

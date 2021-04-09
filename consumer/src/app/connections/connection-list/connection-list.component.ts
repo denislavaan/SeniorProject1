@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
 import { Connection } from 'src/app/NgModels/connection';
 import { Pagination } from 'src/app/NgModels/pagination';
 import { User } from 'src/app/NgModels/user';
 import { UserParams } from 'src/app/NgModels/userParams';
-import { AccountService } from 'src/app/NgServices/account.service';
 import { ConnectionsService } from 'src/app/NgServices/connections.service';
 
 @Component({

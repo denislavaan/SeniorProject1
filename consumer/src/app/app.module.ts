@@ -35,6 +35,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MessagesComponent } from './messages/messages.component';
 import { ConnectionMessagesComponent } from './connections/connection-messages/connection-messages.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 
 
@@ -63,6 +64,7 @@ import { ConnectionMessagesComponent } from './connections/connection-messages/c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    TypeaheadModule.forRoot(),
     ToastrModule.forRoot({
 positionClass: 'toast-top-center'
     }),
@@ -77,6 +79,7 @@ positionClass: 'toast-top-center'
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
     TimeagoModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
