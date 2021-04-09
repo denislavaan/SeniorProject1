@@ -15,7 +15,7 @@ export class ConnectionListComponent implements OnInit {
   pagination: Pagination;
   userParams: UserParams;
   user: User;
-  genderList: [{ value: 'male', display: 'Males' }, { value: 'female', display: 'Females' }];
+  genderList: [{ value: 'male', display: "Males" }, { value: 'female', display: "Females" }];
 
   constructor(private connectionService: ConnectionsService) { 
     this.userParams = this.connectionService.getUserParams();

@@ -40,7 +40,7 @@ namespace API.Controllers
            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
            userParams.CurrentUsername = user.UserName;
            if (string.IsNullOrEmpty(userParams.Gender))
-           userParams.Gender = user.Gender == "male" ? "female" : "male";
+           userParams.Gender = user.Gender == "female" ? "female" : "male";
 
             var users = await _userRepository.GetConnectionsAsync(userParams);
                 //now the users variiable is now a paged list of type connection dto 
